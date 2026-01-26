@@ -1,0 +1,467 @@
+/* --- 1. RESET Y CONFIGURACIÓN GLOBAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    /* height: 100%; Removed to fix scroll behavior */
+    background: rgba(0, 0, 0, 0.8);/* Color base oscuro */
+    color: #f2f2f2;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* --- 2. NAVEGACIÓN (METAL NAVBAR) --- */
+.metal-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 25px 30px; 
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 60px;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    transition: all 0.4s ease-in-out; /* Suaviza el cambio de tamaño y color */
+}
+
+/* Estado cuando se hace scroll (Activado por JS) */
+.metal-navbar.scrolled {
+    padding: 10px 30px;
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); /* Sombra más oscura */
+}
+
+.metal-navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.metal-navbar a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.metal-navbar a:hover, 
+.active a {
+    color: #ff0000;
+}
+
+.nav-logo img {
+    height: 100px;
+    transition: height 0.4s ease; /* Para que el logo también reduzca su tamaño */
+}
+
+.metal-navbar.scrolled .nav-logo img {
+    height: 60px; /* Tamaño del logo al hacer scroll */
+}
+
+/* --- 3. SECCIÓN HERO (INICIO) --- */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Imagen de fondo corregida */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                      url("../img/Portada.png");
+    background-size: cover;      /* Obliga a la imagen a cubrir todo el fondo */
+    background-position: center; /* Centra la imagen para que no se vea en una esquina */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Efecto Parallax (opcional) */
+}
+
+.hero-content {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 50px;
+    max-width: 90%;
+    border: 1px solid rgba(255, 0, 0, 0.1); /* Borde sutil estilo metal */
+}
+
+.hero h1 {
+    font-size: 5rem;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+/* --- 4. BOTONES Y COMPONENTES --- */
+.btn {
+    display: inline-block;
+    padding: 12px 35px;
+    background: #dc143c; /* Crimson */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* --- 5. SECCIONES GENERALES --- */
+.section {
+    padding: 80px 25%;
+}
+.section p {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.video-grid iframe {
+    width: 100%;
+    height: 250px;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* --- 6. FOOTER Y SOCIALS --- */
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #000;
+    border-top: 1px solid #1a1a1a;
+}
+
+#contacto .subscribe{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    font-size: 2.8rem;
+}
+input {
+    width: 100%;
+    height: 12px;
+    margin: 0.5em;
+    padding: 1em;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .12);
+    font-family: inherit;
+    font-size: 15px;
+    line-height: normal;
+    outline: none; 
+}
+
+
+.socials a {
+    margin: 0 15px;
+    color: #dc143c;
+    text-decoration: none;
+    font-size: 2.0rem;
+}
+
+.socials a:hover {
+    color: #fff;
+}
+
+/* --- 7. RESPONSIVE DESIGN --- */
+
+@media (max-width: 768px) {
+    /* Ajuste del Navbar */
+    .metal-navbar {
+        flex-direction: column; /* Apila el logo y los menús */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .metal-navbar ul {
+        gap: 15px;
+    }
+
+    .metal-navbar a {
+        font-size: 11px; /* Texto más pequeño para que quepa */
+        letter-spacing: 1px;
+    }
+
+    .nav-logo img {
+        height: 60px; /* Logo más pequeño en móvil */
+    }
+
+    /* Ajuste de la Sección Hero */
+    .hero h1 {
+        font-size: 2.8rem; /* Título más pequeño para que no se corte */
+    }
+
+    .hero-content {
+        padding: 30px 20px;
+        width: 95%;
+    }
+
+    /* Ajuste de Secciones y Videos */
+    .section {
+        padding: 60px 5%; /* Menos margen lateral */
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr; /* Un video por fila */
+    }
+    justify-content: center; 
+    gap: 60px;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    transition: all 0.4s ease-in-out; /* Suaviza el cambio de tamaño y color */
+}
+
+/* Estado cuando se hace scroll (Activado por JS) */
+.metal-navbar.scrolled {
+    padding: 10px 30px;
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); /* Sombra más oscura */
+}
+
+.metal-navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.metal-navbar a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.metal-navbar a:hover, 
+.active a {
+    color: #ff0000;
+}
+
+.nav-logo img {
+    height: 100px;
+    transition: height 0.4s ease; /* Para que el logo también reduzca su tamaño */
+}
+
+.metal-navbar.scrolled .nav-logo img {
+    height: 60px; /* Tamaño del logo al hacer scroll */
+}
+
+/* --- 3. SECCIÓN HERO (INICIO) --- */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Imagen de fondo corregida */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                      url("../img/Portada.png");
+    background-size: cover;      /* Obliga a la imagen a cubrir todo el fondo */
+    background-position: center; /* Centra la imagen para que no se vea en una esquina */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Efecto Parallax (opcional) */
+}
+
+.hero-content {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 50px;
+    max-width: 90%;
+    border: 1px solid rgba(255, 0, 0, 0.1); /* Borde sutil estilo metal */
+}
+
+.hero h1 {
+    font-size: 5rem;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+/* --- 4. BOTONES Y COMPONENTES --- */
+.btn {
+    display: inline-block;
+    padding: 12px 35px;
+    background: #dc143c; /* Crimson */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* --- 5. SECCIONES GENERALES --- */
+.section {
+    padding: 80px 25%;
+}
+.section p {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.video-grid iframe {
+    width: 100%;
+    height: 250px;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* --- 6. FOOTER Y SOCIALS --- */
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #000;
+    border-top: 1px solid #1a1a1a;
+}
+
+#contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 2.8rem;
+}
+input {
+       width: 100%;
+    padding: 1em;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .12);
+    font-family: inherit;
+    font-size: 15px;
+    line-height: normal;
+    outline: none; 
+}
+
+
+.socials a {
+    margin: 0 15px;
+    color: #dc143c;
+    text-decoration: none;
+    font-size: 2.0rem;
+}
+
+.socials a:hover {
+    color: #fff;
+}
+
+/* --- 7. RESPONSIVE DESIGN --- */
+
+@media (max-width: 768px) {
+    /* Ajuste del Navbar */
+    .metal-navbar {
+        flex-direction: column; /* Apila el logo y los menús */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .metal-navbar ul {
+        gap: 15px;
+    }
+
+    .metal-navbar a {
+        font-size: 11px; /* Texto más pequeño para que quepa */
+        letter-spacing: 1px;
+    }
+
+    .nav-logo img {
+        height: 60px; /* Logo más pequeño en móvil */
+    }
+
+    /* Ajuste de la Sección Hero */
+    .hero h1 {
+        font-size: 2.8rem; /* Título más pequeño para que no se corte */
+    }
+
+    .hero-content {
+        padding: 30px 20px;
+        width: 95%;
+    }
+
+    /* Ajuste de Secciones y Videos */
+    .section {
+        padding: 60px 5%; /* Menos margen lateral */
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr; /* Un video por fila */
+    }
+
+    .album iframe {
+        height: 350px; /* Ajuste de altura para reproductores de Spotify */
+    }
+
+    /* Formulario de contacto */
+    .subscribe {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .subscribe input {
+        width: 300px; /* Override generic 100% */
+        padding: 12px 20px;
+        border: 2px solid #dc143c;
+        background: #000;
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+        margin: 0; /* Remove default margins */
+    }
+
+    .subscribe input::placeholder {
+        color: #888;
+    }
+
+    .subscribe .btn {
+        padding: 12px 30px;
+        background: #dc143c;
+        border: 2px solid #dc143c;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 900;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 0; /* Ensure alignment */
+    }
+
+    .subscribe .btn:hover {
+        background: #000;
+        color: #dc143c;
+        box-shadow: 0 0 20px rgba(220, 20, 60, 0.6);
+    }
+}
