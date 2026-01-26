@@ -185,7 +185,7 @@ input {
     /* Ajuste del Navbar */
     .metal-navbar {
         flex-direction: column; /* Apila el logo y los menús */
-        gap: 15px;
+        gap: 1px;
         padding: 15px;
     }
 
@@ -229,7 +229,7 @@ input {
 
 /* Estado cuando se hace scroll (Activado por JS) */
 .metal-navbar.scrolled {
-    padding: 10px 30px;
+    padding: 15px;
     background: rgba(0, 0, 0, 0.95);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); /* Sombra más oscura */
 }
@@ -380,7 +380,7 @@ input {
     /* Ajuste del Navbar */
     .metal-navbar {
         flex-direction: column; /* Apila el logo y los menús */
-        gap: 15px;
+        gap: 1px;
         padding: 15px;
     }
 
