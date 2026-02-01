@@ -71,6 +71,7 @@ html, body {
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     
@@ -102,6 +103,17 @@ html, body {
     font-size: 1.2rem;
     letter-spacing: 3px;
     margin-bottom: 20px;
+}
+.hero-logo {
+    /* El logo ocupará el 30% del ancho de su contenedor */
+    width: 30%; 
+    height: auto; /* Mantiene la proporción original */
+    margin-bottom: 20px; /* Espacio entre el logo y el texto */
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); /* Opcional: da profundidad */
+}
+.hero-content1 {
+    text-align: center;
+    width: 100%;
 }
 
 /* --- 4. BOTONES Y COMPONENTES --- */
