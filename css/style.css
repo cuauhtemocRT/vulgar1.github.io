@@ -531,3 +531,42 @@ input {
     cursor: pointer;
     color: #dc143c;
 }
+
+/* Gallery Styles */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: border-color 0.3s ease;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(40%);
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.photo-item:hover {
+    border-color: #ff4444; /* Rojo Vulgar */
+}
+
+.photo-item img:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+/* Ajuste para que el menú Gallery lleve a las fotos */
+html {
+    scroll-behavior: smooth;
+}
